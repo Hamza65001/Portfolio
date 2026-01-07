@@ -1,0 +1,227 @@
+/* =========================================
+   1. IMPORT DE LA POLICE & RESET GLOBAL
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f5f5f7; /* Blanc cassé style Apple */
+    color: #1d1d1f; /* Noir doux pour le texte */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Rendu de police plus net */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 18px; /* Contours ronds sur toutes les images */
+}
+
+/* =========================================
+   2. EN-TÊTE (HEADER) COMMUN
+   ========================================= */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #86868b;
+}
+
+nav a:hover {
+    color: #0071e3; /* Bleu Apple */
+}
+
+.hero h1, .category-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 16px;
+    letter-spacing: -0.02em; /* Crénage serré style titres Apple */
+}
+
+.hero p, .category-header p {
+    font-size: 20px;
+    color: #86868b;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+/* =========================================
+   3. GRILLE DES CATÉGORIES (HOME BLOG)
+   ========================================= */
+main {
+    max-width: 1200px; /* Largeur maximale pour que les 4 colonnes respirent */
+    margin: 0 auto;
+    padding: 0 20px 80px 20px;
+}
+
+.categories-grid {
+    display: grid;
+    /* La demande : 4 colonnes (pour faire 2 lignes avec 8 items) */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; /* Espace entre les cartes */
+    margin-top: 40px;
+}
+
+.category-card {
+    background: #ffffff;
+    border-radius: 24px; /* Coins très arrondis */
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Ombre très douce et diffuse */
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.category-card:hover {
+    transform: scale(1.03); /* Léger zoom au survol */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Style de l'icône/image dans la carte */
+.category-card .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    /* Si tu utilises des balises <img> à l'intérieur : */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-card .icon img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.category-card h2 {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.4;
+}
+
+/* =========================================
+   4. PAGES ARTICLES (SOUS-DOSSIERS)
+   ========================================= */
+
+/* Conteneur plus étroit pour la lecture (meilleure ergonomie) */
+.articles-container {
+    max-width: 800px; 
+    margin: 0 auto;
+    display: block; /* Pas de grille ici, c'est une liste verticale */
+}
+
+.blog-post {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+}
+
+.post-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Recadre l'image proprement sans déformer */
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+.post-content .date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #86868b;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.post-content p {
+    font-size: 17px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.read-more {
+    display: inline-block;
+    color: #0071e3;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e5e5e5;
+    margin: 60px 0;
+    display: none; /* Caché car j'ai mis des marges sur .blog-post */
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #86868b;
+    font-size: 12px;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 40px;
+}
+
+/* =========================================
+   5. RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 900px) {
+    /* Sur tablette/mobile, on passe de 4 colonnes à 2 ou 1 */
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .categories-grid {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+    
+    .hero h1 { font-size: 32px; }
+    .blog-post { padding: 25px; }
+    .post-image img { height: 200px; }
+}
