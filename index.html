@@ -11,92 +11,181 @@
     
     <link rel="stylesheet" href="blog/css/style.css">
     
-    <style>
-        /* Ajustements spécifiques pour la page d'accueil */
-        .section-container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-        .section-title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        /* Partie 1: À propos */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .about-card {
-            background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-        }
+<style>
+    /* Import de la police Inter */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-        /* Partie 2: Projets */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        /* Partie 4: CV Interactif (Timeline simple) */
-        .timeline {
-            border-left: 2px solid #e5e5e5;
-            padding-left: 30px;
-            margin: 40px 0;
-        }
-        .timeline-item {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: #0071e3;
-            border-radius: 50%;
-            position: absolute;
-            left: -37px;
-            top: 6px;
-        }
-        
-        /* Boutons */
-        .btn-primary {
-            display: inline-block;
-            background-color: #0071e3;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 99px; /* Pill shape */
-            font-weight: 500;
-            margin-top: 20px;
-        }
-        .btn-primary:hover {
-            background-color: #0077ed;
-            color: white;
-        }
-        
-        .btn-secondary {
-            display: inline-block;
-            background-color: #e8e8ed;
-            color: #1d1d1f;
-            padding: 12px 24px;
-            border-radius: 99px;
-            font-weight: 500;
-            margin-top: 10px;
-        }
+    /* Configuration Globale */
+    body {
+        /* Arrière-plan blanc cassé (très doux) */
+        background-color: #f9f9f9;
+        /* Police Inter */
+        font-family: 'Inter', sans-serif;
+        /* Couleur de texte sombre pour fort contraste */
+        color: #1a1a1a; 
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .about-grid, .projects-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    h1, h2, h3 {
+        color: #000000;
+        letter-spacing: -0.02em; /* Approche moderne serrée */
+    }
+
+    p {
+        color: #4a4a4a; /* Gris foncé pour la lecture */
+        font-size: 16px;
+    }
+
+    /* Layout */
+    .section-container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 100px 24px;
+    }
+
+    .section-title {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 60px;
+        text-align: center;
+        color: #000;
+    }
+
+    /* Partie 1: À propos & Cartes Générales */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .about-card, .project-card {
+        background: #ffffff; /* Carte blanche sur fond blanc cassé */
+        padding: 48px;
+        border-radius: 32px; /* Arrondis prononcés */
+        /* Bordure très fine pour le contraste */
+        border: 1px solid #e5e5e5; 
+        /* Ombre très diffuse et douce */
+        box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover, .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
+        border-color: #d0d0d0;
+    }
+
+    /* Partie 2: Projets */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+    }
+
+    /* Partie 4: CV Interactif (Timeline Minimaliste) */
+    .timeline {
+        border-left: 2px solid #e0e0e0;
+        padding-left: 40px;
+        margin: 60px 0;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #ffffff;
+        border: 3px solid #1a1a1a; /* Cercle blanc à bordure noire */
+        border-radius: 50%;
+        position: absolute;
+        left: -49px; /* Ajusté pour la nouvelle taille */
+        top: 6px;
+        transition: background 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+        background: #1a1a1a;
+    }
+
+    .timeline-date {
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .timeline-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+    }
+
+    /* Boutons Modernes */
+    .btn-container {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1a1a1a; /* Noir presque pur */
+        color: white;
+        padding: 16px 32px;
+        border-radius: 99px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+        background-color: #000000;
+        transform: scale(1.02);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        padding: 16px 32px;
+        border-radius: 99px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        border: 1px solid #e5e5e5; /* Bordure subtile */
+        transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #f5f5f5;
+        border-color: #d0d0d0;
+        color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .about-grid { grid-template-columns: 1fr; }
+        .section-title { font-size: 36px; }
+        .about-card, .project-card { padding: 32px; }
+    }
+</style>
 </head>
 <body>
 
@@ -109,7 +198,7 @@
             <a href="#contact">Contact</a>
         </nav>
         <div class="hero" style="margin-top: 60px;">
-            <h1>Bienvenue, je suis EL GHAZALI Hamza]</h1>
+            <h1>Bienvenue, je suis EL GHAZALI Hamza</h1>
             <p>Étudiant en informatique & Passioné Tech</p>
         </div>
     </header>
