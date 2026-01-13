@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing & Ingénierie Sociale - Blog Tech</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CONFIGURATION GLOBALE --- */
+        body {
+            background-color: #f9f9f9; /* Blanc cassé */
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a; /* Noir profond */
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- BOUTON RETOUR --- */
+        .nav-header {
+            padding-bottom: 40px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 99px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-color: #1a1a1a;
+            transform: translateX(-5px);
+        }
+
+        /* --- CONTENU DE L'ARTICLE --- */
+        .article-card {
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 32px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+            border: 1px solid #e5e5e5;
+        }
+
+        /* --- TYPOGRAPHIE --- */
+        h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            border-left: 4px solid #1a1a1a;
+            padding-left: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 17px;
+            color: #333;
+        }
+
+        /* --- BOX EXEMPLE --- */
+        .highlight-box {
+            background-color: #f4f4f5;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 30px 0;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+
+        .alert-text {
+            color: #d32f2f; /* Rouge subtil pour l'alerte */
+            font-weight: 600;
+        }
+
+        /* --- LISTES --- */
+        ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        li::before {
+            content: "→";
+            color: #1a1a1a;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        .btn-top {
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 99px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .article-card { padding: 30px; }
+            h1 { font-size: 30px; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="top">
+        <header class="nav-header">
+            <a href="../index.html" class="btn-back">← Retour aux articles</a>
+        </header>
+
+        <main class="article-card">
+            <article>
+                <header>
+                    <h1>Phishing & Ingénierie Sociale : L'art de hacker l'humain</h1>
+                    <p class="subtitle">Analyse • Publié le 28 Mai 2024</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 40px;">
+                </header>
+
+                <section>
+                    <p>
+                        On imagine souvent le piratage informatique comme une ligne de code complexe tapée par un génie à capuche dans une pièce sombre. La réalité est bien plus triviale : pourquoi s'attaquer à un pare-feu ultra-sécurisé quand on peut simplement demander le mot de passe à l'utilisateur ?
+                    </p>
+                    <p>
+                        C'est le principe de l'<strong>ingénierie sociale</strong> : manipuler psychologiquement une personne pour qu'elle commette une erreur de sécurité.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>1. Les techniques d'attaque les plus courantes</h2>
+                    <p>
+                        Les attaquants redoublent d'inventivité pour crédibiliser leurs arnaques. Voici les vecteurs principaux que vous rencontrerez.
+                    </p>
+
+                    <h3>Le Phishing (Hameçonnage) classique</h3>
+                    <p>
+                        C'est l'envoi massif d'emails imitant une institution (Banque, Netflix, Impôts). L'objectif est de vous faire cliquer sur un lien malveillant ou de télécharger une pièce jointe infectée.
+                    </p>
+
+                    <h3>Le Smishing (SMS Phishing)</h3>
+                    <p>
+                        Avec la méfiance grandissante envers les emails, les attaquants migrent vers nos téléphones. Le SMS paraît plus intime, plus urgent et donc plus crédible.
+                    </p>
+
+                    <div class="highlight-box">
+                        <span class="highlight-title">Scénario typique</span>
+                        Vous recevez un SMS : <span class="alert-text">"Info Livraison : Votre colis est bloqué au terminal. Frais de douane impayés (2.99€). Réglez via ce lien sous 24h pour éviter le retour."</span><br><br>
+                        Le montant est faible, l'urgence est là. On clique, on rentre sa carte bancaire, et c'est terminé.
+                    </div>
+
+                    <h3>Le Vishing (Voice Phishing)</h3>
+                    <p>
+                        L'attaquant vous appelle en se faisant passer pour votre conseiller bancaire ou le support technique de Microsoft. Avec les technologies de <em>Deepfake audio</em> (clonage de voix par IA), ces attaques deviennent redoutablement convaincantes.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>2. Les leviers psychologiques exploités</h2>
+                    <p>
+                        Pour qu'une arnaque fonctionne, elle doit contourner votre esprit critique. Les pirates appuient sur quatre boutons émotionnels :
+                    </p>
+                    <ul>
+                        <li><strong>L'urgence :</strong> "Votre compte sera supprimé dans 2h". Cela force le cerveau à agir vite sans réfléchir.</li>
+                        <li><strong>La peur :</strong> "Une connexion suspecte a été détectée".</li>
+                        <li><strong>L'autorité :</strong> "C'est le PDG qui demande ce virement". On a tendance à obéir à la hiérarchie.</li>
+                        <li><strong>La curiosité :</strong> "Regarde les photos de la soirée d'hier en pièce jointe".</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Comment repérer une tentative ?</h2>
+                    <p>
+                        Le diable se cache dans les détails. Avant de cliquer, prenez 5 secondes pour analyser ces éléments :
+                    </p>
+                    
+                    <h3>L'adresse de l'expéditeur</h3>
+                    <p>
+                        Regardez l'adresse réelle, pas le nom affiché. Si le mail vient de "Support Netflix" mais que l'adresse est <code>contact@domaine-bizarre.com</code>, c'est une arnaque.
+                    </p>
+
+                    <h3>L'URL du lien (Au survol)</h3>
+                    <p>
+                        Sur ordinateur, passez votre souris sur le lien <strong>sans cliquer</strong>. L'adresse réelle s'affiche en bas à gauche de votre navigateur. Si elle ne correspond pas au site officiel, fuyez.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>4. Les bonnes pratiques pour se prémunir</h2>
+                    <p>
+                        La technologie peut nous aider, mais la vigilance reste la clé.
+                    </p>
+                    <ul>
+                        <li><strong>Activez la Double Authentification (MFA) :</strong> C'est la protection ultime. Même si un pirate a votre mot de passe, il ne pourra pas entrer sans le code reçu sur votre téléphone.</li>
+                        <li><strong>Ne validez jamais rien sous la pression :</strong> Une banque ne vous demandera jamais vos codes par téléphone. Jamais.</li>
+                        <li><strong>La contre-vérification :</strong> Si vous recevez un mail étrange d'un collègue demandant un virement, appelez-le sur son numéro connu (pas celui du mail) pour confirmer.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Conclusion</h2>
+                    <p>
+                        En cybersécurité, on dit souvent que le problème se situe "entre la chaise et le clavier". Ne soyez pas le maillon faible. En adoptant une attitude de <em>scepticisme sain</em>, vous bloquerez 99% des attaques d'ingénierie sociale.
+                    </p>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="btn-top">
+                ↑ Remonter en haut
+            </button>
+            <p style="margin-top: 30px; font-size: 14px; color: #999;">&copy; 2024 Mon Blog Tech. Tous droits réservés.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
